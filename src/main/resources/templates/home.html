@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Banking Application</h1>
+    <a href="/openAccount"><button type="button" class="btn btn-primary">Open Account</button></a>
+    <a href="/transfer"><button type="button" class="btn btn-primary">Transfer</button></a>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Account #</th>
+            <th scope="col">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="acct: ${accounts}">
+            <td ><a th:href="${acct.id}" th:text="${acct.id}">1234</a></td>
+            <td th:text="${#numbers.formatDecimal(acct.amount, 1, 2)}">0.99</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
